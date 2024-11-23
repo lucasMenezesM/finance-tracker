@@ -20,4 +20,4 @@ production:
   <<: *default
   database: finance_tracker_production
   username: your_pg_production_username
-  password: <%= ENV['PG_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
