@@ -1,0 +1,7 @@
+<h1>My Portfolio</h1>
+
+<%= render "users/search_form", q: @q%>
+
+<div id="results_display">
+  <%= render "users/result_table", q: @q, stocks: @stocks%>
+</div>

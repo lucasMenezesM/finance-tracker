@@ -1,0 +1,45 @@
+<div class="card my-5">
+
+  <div class="card-header">
+    <h4>Search your portfolio</h4>
+  </div>
+
+  <%= search_form_for q, url: stocks_path, remote: true, class: "mb-1" do |f| %>
+    <div class="card-body">
+
+      <div class="form-group row align-items-center">
+        
+        <div class="col-sm-3">
+          <%= f.label :ticker, class: "form-label" %>
+          <%= f.search_field :ticker_cont, class: "form-control form-control-lg" %>
+        </div>
+
+        <div class="col-sm-5">
+          <%= f.label :name, class: "form-label" %>
+          <%= f.search_field :name_cont, class: "form-control form-control-lg" %>
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <div class="form-group row">
+        <div class="col-sm-4  d-flex align-items-center">
+          <%= button_tag(type: 'submit', class: 'btn btn-success') do %>
+            <i class="fa-solid fa-magnifying-glass"></i> Search Stocks
+          <% end %>
+
+          <%= link_to my_portfolio_path, class: "btn btn-secondary mx-3" do%>
+            <i class="fa fa-broom"></i> Clear Fields
+          <%end%>
+
+          <%= link_to root_path, class: "btn btn-info" do%>
+            <i class="fa-solid fa-arrow-left"></i> Back
+          <%end%>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

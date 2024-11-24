@@ -1,0 +1,33 @@
+<%= render "layouts/flash_messages" %>
+
+<%if stocks.size > 0 %>
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th><%= sort_link(q, :name, "Name") %></th>
+            <th><%= sort_link(q, :ticker, "Ticker Symbol") %></th>
+            <th><%= sort_link(q, :last_price, "Last Price") %></th>
+            <th><%= sort_link(q, :created_at, "Created at") %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% stocks.each do |stock| %>
+            <tr>
+              <td><%= stock.name %></td>
+              <td><%= stock.ticker %></td>
+              <td>$<%= stock.last_price %></td>
+              <td><%= stock.created_at.to_s(:long) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<%else%>
+  <div class="alert alert-warning m-2" role="alert">
+    There are no results with the fields provided!
+  </div>
+<%end%>   
