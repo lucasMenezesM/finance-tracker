@@ -8,9 +8,9 @@
 
 # db/seeds.rb
 
+UserStock.delete_all
 User.delete_all
 Stock.delete_all
-UserStock.delete_all
 
 users = User.create([
   { email: 'lucas@gmail.com', password: 'password', name: 'Lucas M.' },
