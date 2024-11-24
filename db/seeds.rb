@@ -8,7 +8,25 @@
 
 # db/seeds.rb
 
-Stock.create([
+User.delete_all
+Stock.delete_all
+UserStock.delete_all
+
+users = User.create([
+  { email: 'lucas@gmail.com', password: 'password', name: 'Lucas M.' },
+  { email: 'john.doe@example.com', password: 'password', name: 'John Doe' },
+  { email: 'jane.smith@example.com', password: 'password', name: 'Jane Smith' },
+  { email: 'alice.jones@example.com', password: 'password', name: 'Alice Jones' },
+  { email: 'bob.brown@example.com', password: 'password', name: 'Bob Brown' },
+  { email: 'charlie.davis@example.com', password: 'password', name: 'Charlie Davis' },
+  { email: 'david.wilson@example.com', password: 'password', name: 'David Wilson' },
+  { email: 'emma.thomas@example.com', password: 'password', name: 'Emma Thomas' },
+  { email: 'oliver.moore@example.com', password: 'password', name: 'Oliver Moore' },
+  { email: 'sophia.taylor@example.com', password: 'password', name: 'Sophia Taylor' },
+  { email: 'liam.anderson@example.com', password: 'password', name: 'Liam Anderson' }
+])
+
+stocks = Stock.create([
   { ticker: 'AAPL', name: 'Apple Inc.', last_price: 178.56 },
   { ticker: 'MSFT', name: 'Microsoft Corporation', last_price: 329.37 },
   { ticker: 'GOOGL', name: 'Alphabet Inc.', last_price: 143.88 },
@@ -58,6 +76,25 @@ Stock.create([
   { ticker: 'ROKU', name: 'Roku, Inc.', last_price: 79.23 },
   { ticker: 'SBUX', name: 'Starbucks Corporation', last_price: 96.56 },
   { ticker: 'TGT', name: 'Target Corporation', last_price: 122.45 }
+])
+
+user_stocks = UserStock.create([
+  {user: users[1], stock: stocks[3]},
+  {user: users[2], stock: stocks[5]},
+  {user: users[3], stock: stocks[7]},
+  {user: users[4], stock: stocks[9]},
+  {user: users[5], stock: stocks[11]},
+  {user: users[6], stock: stocks[13]},
+  {user: users[7], stock: stocks[15]},
+  {user: users[8], stock: stocks[17]},
+  {user: users[9], stock: stocks[19]},
+  {user: users[0], stock: stocks[21]},
+  {user: users[1], stock: stocks[5]},
+  {user: users[0], stock: stocks[7]},
+  {user: users[0], stock: stocks[2]},
+  {user: users[3], stock: stocks[17]},
+  {user: users[9], stock: stocks[11]},
+  {user: users[8], stock: stocks[5]}
 ])
 
 puts 'Stocks table has been fully seeded with additional fictitious entries!'
