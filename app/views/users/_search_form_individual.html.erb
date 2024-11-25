@@ -1,0 +1,28 @@
+<div class="card my-5">
+
+  <div class="card-header">
+    <h4>Use the Ticker Symbol to Search a Stock Here</h4>
+  </div>
+
+  <%= form_for @stock, url: stock_search_path, remote: true, class: "mb-1" do |f| %>
+    <div class="card-body">
+
+      <div class="form-group row align-items-center">
+        
+        <div class="col-sm-8 pe-0">
+          <%= f.search_field :ticker, class: "form-control form-control-lg" %>
+        </div>
+
+        <div class="col-sm-2 px-0">
+          <%= button_tag(type: 'submit', class: 'btn btn-success btn-lg') do %>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+
+    
+  <% end %>
+</div>

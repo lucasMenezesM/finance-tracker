@@ -1,0 +1,31 @@
+<%if params[:controller] == "stocks" %>
+  <%= render "layouts/flash_messages" %>
+<%end%>
+
+<%if @stock.present?%>
+
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Ticker:</strong> <%=@stock.ticker%>
+      </li>
+      <li class="list-group-item">
+        <strong>Name:</strong> <%=@stock.name%>
+      </li>
+      <li class="list-group-item">
+        <strong>Last price:</strong> <%=@stock.last_price%>
+      </li>
+    </ul>
+    <div class="card-footer">
+      <%if user_has_stock(@stock) %>
+        This stock is already added in your Portfolio
+      <%elsif !user_can_track %>
+        You have more than 10 stocks in your Portfolio!
+      <%else%>
+        <%= link_to user_stocks_path(ticker: @stock.ticker), method: :post, class: "btn btn-success btn-sm" do%>
+          <i class="fa-solid fa-plus"></i> Add to Portfolio
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+<%end%>

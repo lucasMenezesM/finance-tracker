@@ -1,7 +1,11 @@
 <h1>My Portfolio</h1>
 
-<%= render "users/search_form", q: @q%>
+<%= render "users/search_form_individual"%>
 
-<div id="results_display">
-  <%= render "users/result_table", q: @q, tracked_stocks: current_user.stocks%>
+<div id="result_stock"></div>
+
+<%= render "users/search_form_portfolio", q: @q%>
+
+<div id="stocks_from_portfolio_results">
+  <%= render "users/result_table", q: @q, tracked_stocks: @stocks%>
 </div>

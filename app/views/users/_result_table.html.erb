@@ -1,4 +1,6 @@
-<%= render "layouts/flash_messages" %>
+<%if params[:controller] == "stocks" %>
+  <%= render "layouts/flash_messages" %>
+<%end%>
 
 <%if !tracked_stocks.empty? %>
   <div class="card">
@@ -10,6 +12,7 @@
             <th><%= sort_link(q, :ticker, "Ticker Symbol") %></th>
             <th><%= sort_link(q, :last_price, "Last Price") %></th>
             <th><%= sort_link(q, :created_at, "Created at") %></th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -20,6 +23,7 @@
               <td><%= stock.ticker %></td>
               <td>$<%= stock.last_price %></td>
               <td><%= stock.created_at.to_s(:long) %></td>
+              <td><%= link_to "Remove from Portfolio", user_stock_path(stock), class: "btn btn-danger", method: :delete%></td>
             </tr>
           <% end %>
         </tbody>
