@@ -14,6 +14,14 @@
               <i class="fa-solid fa-briefcase"></i> My Portfolio
             <%end%>
           </li>
+
+          <%if user_signed_in?%>
+            <li class="nav-itm">
+              <%= link_to my_friends_path, class: "nav-link  #{'active' if request.path == my_friends_path}" do%>
+                <i class="fa-solid fa-users"></i> My Friends
+              <%end%>
+            </li>
+          <%end%>
           
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">

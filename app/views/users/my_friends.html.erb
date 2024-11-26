@@ -1,0 +1,7 @@
+<%= render "search_form_friends", q: @q%>
+
+<div id="friends-display"></div>
+
+<%if @friends %>
+  <%= render "users/friends_table", friends: @friends%>
+<%end%>

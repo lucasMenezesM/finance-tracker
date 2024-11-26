@@ -1,0 +1,32 @@
+<%if params[:controller] == "users" %>
+  <%= render "layouts/flash_messages" %>
+<%end%>
+
+<% if !@friends.empty? %>
+  <div class="card card-header friends-result-display mb-4">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Signed up Since</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @friends.each do |friend| %>
+          <tr>
+            <th scope="row"><%=friend.name%></th>
+            <td><%=friend.email%></td>
+            <td><%=friend.created_at%></td>
+            <th scope="col">
+              <%= link_to "#", class: "btn btn-success btn-sm" do%>
+                Follow
+              <%end%>
+            </th>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+<%end%>

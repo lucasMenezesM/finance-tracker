@@ -9,6 +9,7 @@
 # db/seeds.rb
 
 UserStock.delete_all
+Friendship.delete_all
 User.delete_all
 Stock.delete_all
 
@@ -95,6 +96,18 @@ user_stocks = UserStock.create([
   {user: users[3], stock: stocks[17]},
   {user: users[9], stock: stocks[11]},
   {user: users[8], stock: stocks[5]}
+])
+
+friendships = Friendship.create ([
+  {user: users[0], friend: users[5]},
+  {user: users[0], friend: users[4]},
+  {user: users[0], friend: users[3]},
+  {user: users[0], friend: users[2]},
+  {user: users[1], friend: users[0]},
+  {user: users[1], friend: users[2]},
+  {user: users[1], friend: users[3]},
+  {user: users[1], friend: users[4]},
+  {user: users[1], friend: users[5]}
 ])
 
 puts 'Stocks table has been fully seeded with additional fictitious entries!'
