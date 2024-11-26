@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :user_has_stock, :user_can_track, :following_since
+  helper_method :user_has_stock, :user_can_track, :following_since, :already_follow?
 
   def user_has_stock(stock)
     current_user.stocks.include?(stock)
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   def following_since(user, friend)
     friendship = Friendship.find_by(user: user, friend: friend)
     friendship.created_at
+  end
+
+  def already_follow?(friend)
+    current_user.friends.include?(friend)
   end
 
 end

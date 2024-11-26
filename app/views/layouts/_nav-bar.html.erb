@@ -17,7 +17,7 @@
 
           <%if user_signed_in?%>
             <li class="nav-itm">
-              <%= link_to my_friends_path, class: "nav-link  #{'active' if request.path == my_friends_path}" do%>
+              <%= link_to friends_path, class: "nav-link  #{'active' if request.path == friends_path}" do%>
                 <i class="fa-solid fa-users"></i> My Friends
               <%end%>
             </li>

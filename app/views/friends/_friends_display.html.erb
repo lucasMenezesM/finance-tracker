@@ -1,4 +1,4 @@
-<%if params[:controller] == "users" %>
+<%if params[:controller] == "friends" %>
   <%= render "layouts/flash_messages" %>
 <%end%>
 
@@ -19,11 +19,17 @@
             <th scope="row"><%=friend.name%></th>
             <td><%=friend.email%></td>
             <td><%=friend.created_at%></td>
-            <th scope="col">
-              <%= link_to "#", class: "btn btn-success btn-sm" do%>
-                Follow
-              <%end%>
-            </th>
+            <%if already_follow?(friend) %>
+              <th scope="col">
+                <span class="badge text-bg-secondary">You already follow this user </span>
+              </th> 
+            <%else%>
+              <th scope="col">
+                <%= link_to "#", class: "btn btn-success btn-sm" do%>
+                  Follow
+                <%end%>
+              </th>
+            <%end%>
           </tr>
         <%end%>
       </tbody>
