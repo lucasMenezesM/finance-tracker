@@ -18,6 +18,7 @@
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <%if user_signed_in? %>
+            <li class="nav-item nav-link active me-2">Welcome, <%=current_user.name%></li>
             <li class="nav-itm">
               <%= link_to destroy_user_session_path, class: "nav-link active", method: :delete do%>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
